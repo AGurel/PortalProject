@@ -11,6 +11,7 @@ namespace PortalProject.Core.Domain.Entity
         public string Content { get; set; }
         public string Photo { get; set; }
         public DateTime? Date { get; set; }
+        public string SeoUrl { get; set; }
         public State Active { get; set; }
         public string Creator { get; set; }
     }

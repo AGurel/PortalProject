@@ -10,6 +10,7 @@ namespace PortalProject.Data.Mapping
             ToTable("News");
             HasKey(x => x.Id);
             Property(x => x.Title).HasMaxLength(200);
+            Property(x => x.SeoUrl).HasMaxLength(300);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace PortalProject.Data.Mapping
             ToTable("Faq");
             HasKey(x => x.Id);
             Property(x => x.Title).HasMaxLength(300);
+            Property(x => x.SeoUrl).HasMaxLength(300);
         }
     }
 }

@@ -22,7 +22,6 @@ namespace PortalProject.Web.Controllers
             _faqService = faqService;
         }
 
-        // GET: Page
         public ActionResult FaqDetail(int faqId)
         {
             FaqModel _faqModel = new FaqModel();
