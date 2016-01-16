@@ -56,7 +56,7 @@ namespace PortalProject.Test.Service
         }
 
         [TestMethod]
-        public void TestMethodUpdateUser()
+        public void TestMethodUpdateBanner()
         {
             var banner = new Banner
             {
@@ -84,7 +84,7 @@ namespace PortalProject.Test.Service
         }
 
         [TestMethod]
-        public void TestMethodDeleteUser()
+        public void TestMethodDeleteBanner()
         {
             var banner = new Banner
             {
