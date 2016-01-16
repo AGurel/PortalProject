@@ -9,5 +9,6 @@ namespace PortalProject.Web.Models
     public class NewsModel
     {
         public News News { get; set; }
+        public List<News> NewsList { get; set; }
     }
 }

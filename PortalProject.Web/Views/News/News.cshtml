@@ -1,0 +1,50 @@
+﻿@model PortalProject.Web.Models.NewsModel
+
+@{
+    ViewBag.Title = "Haberler | " + ViewBag.Setting.Title;
+}
+
+<!-- MAIN TITLE -->
+<div class="main-title">
+    <div class="container">
+        <h1 class="main-title__primary">Haberler</h1>
+        <h3 class="main-title__secondary">Something about us from a little bit of different perspective</h3>
+    </div>
+</div><!-- /.main-title -->
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a class="home" href="/" title="Anasayfaya Dön" rel="v:url">Anasayfa</a>
+        </span>
+        <span>
+            <span>Haberler</span>
+        </span>
+    </div>
+</div><!-- /.breadcrumbs -->
+
+<div class="container">
+
+    <div class="row margin-bottom-30">
+
+        @foreach (var item in Model.NewsList)
+        {
+            <div class="col-sm-4">
+
+                <h3>
+                    <img alt="placeholder" src="~/Content/@item.Photo" class="alignnone">
+                </h3>
+                <h4 class="subLight">
+                    @item.Title
+                </h4>
+                <p>
+                    @item.Content
+                </p>
+
+            </div><!-- /.col -->
+        }
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+

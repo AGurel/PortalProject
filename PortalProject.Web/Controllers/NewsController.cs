@@ -29,5 +29,13 @@ namespace PortalProject.Web.Controllers
 
             return View(_newsModel);
         }
+
+        public ActionResult News()
+        {
+            NewsModel _newsModel = new NewsModel();
+            _newsModel.NewsList = _newsService.GetAll().ToList();
+
+            return View(_newsModel);
+        }
     }
 }

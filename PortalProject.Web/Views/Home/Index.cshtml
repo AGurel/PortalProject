@@ -199,7 +199,7 @@
                 <div class="col-sm-4 margin-bottom-30">
 
                     <div class="widget_pw_latest_news">
-                        <a class="latest-news" href="#">
+                        <a class="latest-news" href="/haberler/@item.SeoUrl/@item.Id">
                             <div class="latest-news__date">
                                 <div class="latest-news__date__month">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Convert.ToDateTime(@item.Date).Month)</div>
                                 <div class="latest-news__date__day">@Convert.ToDateTime(@item.Date).ToString("dd")</div>
@@ -220,12 +220,12 @@
                 <div class="widget_pw_latest_news">
                     @foreach (var item in Model.NewsList.Skip(2).Take(3))
                     {
-                        <a class="latest-news  latest-news--inline" href="#">
+                        <a class="latest-news  latest-news--inline" href="/haberler/@item.SeoUrl/@item.Id">
                             <div class="latest-news__content">
                                 <h4 class="latest-news__title">@item.Title</h4>
                                 <div class="latest-news__author">@item.Creator tarafından oluşturuldu.</div>
                             </div>
-                        </a>            
+                        </a>
                     }
                     <a class="latest-news  latest-news--more-news" href="#">
                         DİĞER HABERLER

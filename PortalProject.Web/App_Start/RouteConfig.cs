@@ -33,7 +33,7 @@ namespace PortalProject.Web
 
             routes.MapRoute(
                 name: "NewsDetail",
-                url: "haber/{title}/{newsId}",
+                url: "haberler/{title}/{newsId}",
                 defaults: new { controller = "News", action = "NewsDetail" }
             );
 
@@ -41,6 +41,12 @@ namespace PortalProject.Web
                 name: "SSSDetail",
                 url: "sss/{title}/{faqId}",
                 defaults: new { controller = "Faq", action = "FaqDetail" }
+            );
+
+            routes.MapRoute(
+                name: "News",
+                url: "haberler",
+                defaults: new { controller = "News", action = "News" }
             );
 
             routes.MapRoute(
