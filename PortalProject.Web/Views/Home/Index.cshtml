@@ -1,0 +1,298 @@
+﻿
+@model PortalProject.Web.Models.HomeModel
+@{
+    ViewBag.Title = ViewBag.Setting.Title;
+    ViewBag.Description = ViewBag.Setting.Description;
+}
+ <!-- JUMBOTRON -->
+<div class="jumbotron jumbotron--with-captions">
+
+    <div data-interval="5000" data-ride="carousel" id="headerCarousel" class="carousel slide">
+
+        <div class="carousel-inner">
+
+            @foreach (var item in Model.BannerList.Take(1))
+            {
+                <div class="item active">
+                    <img alt="@item.TitleMain" sizes="100vw" srcset="~/Content/@item.Photo 1920w, ~/Content/images/manset/banner.png 425w" src="~/Content/@item.Photo">
+                    <div class="container">
+                        <div class="jumbotron-content">
+                            <div class="jumbotron-content__title">
+                                <h1>@item.TitleMain</h1>
+                            </div>
+                            <div class="jumbotron-content__description">
+                                <p class="p1">
+                                    <span class="s1">@item.TitleSub</span>
+                                </p>
+                                <p>
+                                    <a target="@item.UrlTarget" href="@item.Url" class="btn btn-primary @(@String.IsNullOrEmpty(item.Url) ? "hide" : "")">DETAYLAR</a>
+                                </p>
+                                <div class="w69b-screencastify-mouse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.item -->
+            }
+
+            @foreach (var item in Model.BannerList.Skip(1))
+            {
+                <div class="item">
+                    <img alt="@item.TitleMain" sizes="100vw" srcset="~/Content/@item.Photo 1920w, ~/Content/images/manset/banner.png 425w" src="~/Content/@item.Photo">
+                    <div class="container">
+                        <div class="jumbotron-content">
+                            <div class="jumbotron-content__title">
+                                <h1>@item.TitleMain</h1>
+                            </div>
+                            <div class="jumbotron-content__description">
+                                <p class="p1">
+                                    <span class="s1">@item.TitleSub</span>
+                                </p>
+                                <p>
+                                    <a target="@item.UrlTarget" href="@item.Url" class="btn btn-primary @(@String.IsNullOrEmpty(item.Url) ? "hide" : "")">DETAYLAR</a>
+                                </p>
+                                <div class="w69b-screencastify-mouse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.item -->
+            }
+
+        </div><!-- /.carousel-inner -->
+
+        <div class="container">
+
+            <a data-slide="prev" role="button" href="#headerCarousel" class="left jumbotron__control">
+                <i class="fa  fa-caret-left"></i>
+            </a>
+            <a data-slide="next" role="button" href="#headerCarousel" class="right jumbotron__control">
+                <i class="fa  fa-caret-right"></i>
+            </a>
+        </div><!-- /.container -->
+
+    </div><!-- /.carousel -->
+
+</div><!-- /.jumbotron -->
+<!-- OUR SERVICES -->
+<div class="container" role="main">
+
+    <div class="row jumbotron-overlap first">
+
+        @foreach (var item in Model.ProductList)
+        {
+            <div class="col-sm-3">
+
+                <a href="#">
+                    <img alt="@item.Name" class="post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="~/Content/@item.Photo 360w, ~/Content/@item.Photo 848w" src="~/Content/@item.Photo">
+                </a>
+
+                <h5 class="page-box__title"><a href="#">@item.Name</a></h5>
+
+                <p>
+                    @item.Content
+                </p>
+
+                <p>
+                    <a class="read-more" href="#">DETAYLARI GÖR</a>
+                </p>
+
+            </div><!-- /.col -->
+        }
+        
+    </div><!-- /.row -->
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <h3 class="widget-title lined">
+                <span>HİZMETLERİMİZ</span>
+            </h3>
+
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+    <div class="row">
+
+        <div class="col-sm-4">
+
+            @foreach (var item in Model.ProServiceList.Take(3))
+            {
+                <div class="widget_pw_icon_box margin-bottom-30">
+                    <a target="_self" href="#" class="icon-box">
+                        <i class="fa @item.IconClass"></i>
+                        <h4 class="icon-box__title">@item.Name</h4>
+                        <span class="icon-box__subtitle">@item.Description</span>
+                    </a>
+                </div><!-- /.widget_pw_icon_box -->
+            }
+
+        </div><!-- /.col -->
+
+        <div class="col-sm-4">
+
+            @foreach (var item in Model.ProServiceList.Skip(3).Take(3))
+            {
+                <div class="widget_pw_icon_box margin-bottom-30">
+                    <a target="_self" href="#" class="icon-box">
+                        <i class="fa @item.IconClass"></i>
+                        <h4 class="icon-box__title">@item.Name</h4>
+                        <span class="icon-box__subtitle">@item.Description</span>
+                    </a>
+                </div><!-- /.widget_pw_icon_box -->
+            }
+
+        </div><!-- /.col -->
+
+        <div class="col-sm-4">
+
+            @foreach (var item in Model.ProServiceList.Skip(6).Take(3))
+            {
+                <div class="widget_pw_icon_box margin-bottom-30">
+                    <a target="_self" href="#" class="icon-box">
+                        <i class="fa @item.IconClass"></i>
+                        <h4 class="icon-box__title">@item.Name</h4>
+                        <span class="icon-box__subtitle">@item.Description</span>
+                    </a>
+                </div><!-- /.widget_pw_icon_box -->
+            }
+
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.conainer -->
+<!-- CTA -->
+<div class="cta">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="call-to-action">
+                    <div class="call-to-action__text">
+                        İnsansız Hava Aracı ihtiyaçlarınız için doğru adrestesiniz.
+                    </div>
+                    <div class="call-to-action__button">
+                        <a target="_blank" href="#" class="btn btn-primary">İLETİŞİM FORMU</a>
+                    </div>
+                </div><!-- /.call-to-action -->
+
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.cta -->
+<!-- NEWS -->
+<div class="news margin-bottom-60">
+
+    <div class="container">
+
+        <div class="row">
+
+            @foreach (var item in Model.NewsList.Take(2))
+            {
+                <div class="col-sm-4 margin-bottom-30">
+
+                    <div class="widget_pw_latest_news">
+                        <a class="latest-news" href="#">
+                            <div class="latest-news__date">
+                                <div class="latest-news__date__month">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(Convert.ToDateTime(@item.Date).Month)</div>
+                                <div class="latest-news__date__day">@Convert.ToDateTime(@item.Date).ToString("dd")</div>
+                            </div>
+                            <img alt="@item.Title" class="wp-post-image" sizes="(min-width: 781px) 360px, calc(100vw - 30px)" srcset="~/Content/@item.Photo 360w, ~/Content/@item.Photo 848w" src="~/Content/@item.Photo">
+                            <div class="latest-news__content">
+                                <h4 class="latest-news__title">@item.Title</h4>
+                                <div class="latest-news__author">@item.Creator tarafından oluşturuldu.</div>
+                            </div>
+                        </a>
+                    </div><!-- /.widget_pw_latest_news -->
+
+                </div><!-- /.col -->
+            }
+
+            <div class="col-sm-4 margin-bottom-30">
+
+                <div class="widget_pw_latest_news">
+                    @foreach (var item in Model.NewsList.Skip(2).Take(3))
+                    {
+                        <a class="latest-news  latest-news--inline" href="#">
+                            <div class="latest-news__content">
+                                <h4 class="latest-news__title">@item.Title</h4>
+                                <div class="latest-news__author">@item.Creator tarafından oluşturuldu.</div>
+                            </div>
+                        </a>            
+                    }
+                    <a class="latest-news  latest-news--more-news" href="#">
+                        DİĞER HABERLER
+                    </a>
+                </div><!-- /.widget_pw_latest_news -->
+
+            </div><!-- /.col -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.news -->
+<!-- ABOUT / QUICK QUITE / GALLERY / FAQ -->
+<div class="container">
+
+
+    <div class="row margin-bottom-60">
+
+        <div class="col-sm-6">
+
+            <div class="widget_black-studio-tinymce">
+
+                <h3 class="widget-title lined">
+                    <span>GALERİ</span>
+                </h3>
+
+                <div class="gallery gallery-columns-3 gallery-size-medium">
+                    @foreach (var item in Model.GalleryList)
+                    {
+                        <figure class="gallery-item">
+                            <a href="~/Content/@item.Photo">
+                                <img alt="placeholder" src="~/Content/@item.Photo">
+                            </a>
+                        </figure>
+                    }
+                    
+                </div><!-- /.gallery -->
+                <p>
+                    <a href="#" class="read-more">TÜM ALBÜMLERİ GÖR</a>
+                </p>
+
+            </div><!-- /.widget_black-studio-tinymce -->
+
+        </div><!-- /.col -->
+
+        <div class="col-sm-6">
+
+            <h3 class="widget-title lined">
+                <span>SIK SORULAN SORULAR</span>
+            </h3>
+        
+            @foreach (var item in Model.FaqList.Take(3))
+            {
+                <h4>
+                    <a target="_blank" href="#" class="dark-link">@item.Title</a>
+                </h4>
+                <hr>
+            }
+
+            <p>
+                <a href="#" class="read-more">DAHA FAZLA SORU</a>
+            </p>
+
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+

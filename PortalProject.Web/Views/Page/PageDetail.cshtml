@@ -1,0 +1,45 @@
+﻿@model PortalProject.Web.Models.PageModel
+@{
+    ViewBag.Title = @Model.Page.Title + " | " + ViewBag.Setting.Title;
+}
+
+<!-- MAIN TITLE -->
+<div class="main-title">
+    <div class="container">
+        <h1 class="main-title__primary">@Model.Page.Title</h1>
+    </div>
+</div><!-- /.main-title -->
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a class="home" href="/" title="Anasayfaya Git" rel="v:url">Anasayfa</a>
+        </span>
+        <span>
+            <span>@Model.Page.Title</span>
+        </span>
+    </div>
+</div><!-- /.breadcrumbs -->
+
+<div class="container">
+
+    <div class="row">
+
+        <main class="col-xs-12 col-md-12">
+
+            <div class="row margin-bottom-30">
+
+                <div class="col-sm-12">
+
+                    @Html.Raw(Model.Page.Content)
+
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+
+        </main><!-- /.col -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
