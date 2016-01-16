@@ -1,12 +1,12 @@
-﻿@model PortalProject.Web.Models.ProductModel
+﻿@model PortalProject.Web.Models.NewsModel
 @{
-    ViewBag.Title = @Model.Product.Name + " | " + ViewBag.Setting.Title;
+    ViewBag.Title = @Model.News.Title + " | " + ViewBag.Setting.Title;
 }
 
 <!-- MAIN TITLE -->
 <div class="main-title">
     <div class="container">
-        <h1 class="main-title__primary">@Model.Product.Name</h1>
+        <h1 class="main-title__primary">@Model.News.Title</h1>
     </div>
 </div><!-- /.main-title -->
 <!-- BREADCRUMBS -->
@@ -16,7 +16,7 @@
             <a class="home" href="/" title="Anasayfaya Git" rel="v:url">Anasayfa</a>
         </span>
         <span>
-            <span>@Model.Product.Name</span>
+            <span>@Model.News.Title</span>
         </span>
     </div>
 </div><!-- /.breadcrumbs -->
@@ -31,7 +31,7 @@
 
                 <div class="col-sm-12">
 
-                    @Html.Raw(Model.Product.Content)
+                    @Html.Raw(Model.News.Content)
 
                 </div><!-- /.col -->
 

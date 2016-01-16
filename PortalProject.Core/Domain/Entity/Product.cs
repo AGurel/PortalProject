@@ -9,6 +9,7 @@ namespace PortalProject.Core.Domain.Entity
         public string Name { get; set; }
         public string Content { get; set; }
         public string Photo { get; set; }
+        public string SeoUrl { get; set; }
         public State Active { get; set; }
         public int Order { get; set; }
     }

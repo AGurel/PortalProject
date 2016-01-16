@@ -10,6 +10,7 @@ namespace PortalProject.Data.Mapping
             ToTable("Product");
             HasKey(x => x.Id);
             Property(x => x.Name).HasMaxLength(50);
+            Property(x => x.Name).HasMaxLength(300);
         }
     }
 }

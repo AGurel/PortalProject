@@ -22,7 +22,6 @@ namespace PortalProject.Web.Controllers
             _pageService = pageService;
         }
 
-        // GET: Page
         public ActionResult PageDetail(int pageId)
         {
             PageModel _pageModel = new PageModel();

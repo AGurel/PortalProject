@@ -22,7 +22,6 @@ namespace PortalProject.Web.Controllers
             _productService = productService;
         }
 
-        // GET: Page
         public ActionResult ProductDetail(int productId)
         {
             ProductModel _productModel = new ProductModel();
