@@ -1,13 +1,13 @@
-﻿@model PortalProject.Web.Models.NewsModel
+﻿@model PortalProject.Web.Models.GalleryModel
 
 @{
-    ViewBag.Title = "Haberler | " + ViewBag.Setting.Title;
+    ViewBag.Title = "Galeri | " + ViewBag.Setting.Title;
 }
 
 <!-- MAIN TITLE -->
 <div class="main-title">
     <div class="container">
-        <h1 class="main-title__primary">Haberler</h1>
+        <h1 class="main-title__primary">Galeri</h1>
     </div>
 </div><!-- /.main-title -->
 <!-- BREADCRUMBS -->
@@ -17,7 +17,7 @@
             <a class="home" href="/" title="Anasayfaya Dön" rel="v:url">Anasayfa</a>
         </span>
         <span>
-            <span>Haberler</span>
+            <span>Galeri</span>
         </span>
     </div>
 </div><!-- /.breadcrumbs -->
@@ -26,19 +26,16 @@
 
     <div class="row margin-bottom-30">
 
-        @foreach (var item in Model.NewsList)
+        @foreach (var item in Model.GalleryAlbumList)
         {
             <div class="col-sm-4 margin-bottom-30">
 
                 <h3>
-                    <a href="/haberler/@item.SeoUrl/@item.Id"><img alt="placeholder" src="~/Content/@item.Photo" class="alignnone"></a>
+                    <a href="/galeri/@item.SeoUrl/@item.Id"><img alt="placeholder" src="~/Content/@item.Photo" class="alignnone"></a>
                 </h3>
                 <h4 class="subLight">
                     @item.Title
                 </h4>
-                <p>
-                    @item.Content
-                </p>
 
             </div><!-- /.col -->
         }
@@ -46,4 +43,3 @@
     </div><!-- /.row -->
 
 </div><!-- /.container -->
-

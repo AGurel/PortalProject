@@ -150,6 +150,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -159,6 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\FaqModel.cs" />
     <Compile Include="Models\ProServiceModel.cs" />
@@ -294,6 +296,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Faq\Faq.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Gallery\GalleryAlbum.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Gallery\GalleryAlbumDetail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

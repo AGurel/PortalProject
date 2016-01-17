@@ -15,6 +15,7 @@ namespace PortalProject.Core.Domain.Entity
         public string Title { get; set; }
         public string Content { get; set; }
         public string Photo { get; set; }
+        public string SeoUrl { get; set; }
         public State Active { get; set; }
         public int Order { get; set; }
         public virtual ICollection<Gallery> Galleries { get; set; }

@@ -11,6 +11,7 @@ namespace PortalProject.Data.Mapping
             HasKey(x => x.Id);
             Property(x => x.Title).HasMaxLength(150);
             Property(x => x.Photo).HasMaxLength(750);
+            Property(x => x.SeoUrl).HasMaxLength(300);
         }
     }
 }
