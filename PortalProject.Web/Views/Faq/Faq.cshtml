@@ -28,7 +28,7 @@
         <div class="col-xs-12  col-md-12">
             @foreach (var item in Model.FaqList)
 	        {
-                <h3>@item.Title</h3>
+                <h3><a href="/sss/@item.SeoUrl/@item.Id" style="color:#444444;">@item.Title</a></h3>
                 <p>
                     @item.Content
                 </p>
