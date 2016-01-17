@@ -51,5 +51,10 @@ namespace PortalProject.Web.Controllers
 
             return View(_homeModel);
         }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }

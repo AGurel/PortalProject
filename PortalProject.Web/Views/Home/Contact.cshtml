@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "İletişim Bilgileri | " + ViewBag.Setting.Title;
+}
+
+<script>
+	/* Google Map Market Settings */
+
+	var mapMarkers = [
+		{
+			"id": "1",
+			"title": "CargoPress",
+			"address": "Changi Airport, Singapore",
+			"custompinimage": "images\/pin.png"
+		}
+	]
+</script>
+
+<!-- MAIN TITLE -->
+<div class="main-title">
+    <div class="container">
+        <h1 class="main-title__primary">İletişim Bilgileri</h1>
+        <h3 class="main-title__secondary">Aşağıdaki formu kullanarak bize mesajınızı iletebilirsiniz.</h3>
+    </div>
+</div><!-- /.main-title -->
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs margin-bottom-0">
+    <div class="container">
+        <span>
+            <a class="home" href="/" title="Anasayfaya Dön" rel="v:url">Anasayfa</a>
+        </span>
+        <span>
+            <span>İletişim</span>
+        </span>
+    </div>
+</div><!-- /.breadcrumbs -->
+<!-- MAP -->
+<div class="map margin-bottom-60">
+
+    <div data-type="roadmap" data-zoom="11" data-markers='[{"id":"1","title":"CargoPress","address":"Kalmoesstraat 20, Apeldoorn","custompinimage":"images\/pin.png"}]' class="simple-map js-where-we-are"></div>
+
+</div><!-- /.map -->
+
+<div class="container">
+
+    <div class="row margin-bottom-30">
+
+        <div class="col-sm-3 hentry">
+
+            <div class="widget_black-studio-tinymce">
+                <div class="featured-widget">
+                    <h3 class="widget-title">
+                        <span class="widget-title__inline">İletişim</span>
+                    </h3>
+                    <p>
+                        @ViewBag.Setting.Contact.Address
+                    </p>
+                    <p>
+                        @ViewBag.Setting.Contact.Phone<br>
+                        <a href="mailto:@ViewBag.Setting.Contact.Email">@ViewBag.Setting.Contact.Email</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="widget_pw_opening_time">
+
+                <div class="featured-widget">
+                    <h3>
+                        <span class="icon icons-ornament-left"></span>
+                        Çalışma Saatleri
+                        <span class="icon icons-ornament-right"></span>
+                    </h3>
+                    <dl class="week-day ">
+                        <dt>Pazartesi</dt>
+                        <dd>8:30 - 17:30</dd>
+                    </dl>
+                    <dl class="week-day  light-bg">
+                        <dt>Salı</dt>
+                        <dd>8:30 - 17:30</dd>
+                    </dl>
+                    <dl class="week-day ">
+                        <dt>Çarşamba</dt>
+                        <dd>8:30 - 17:30</dd>
+                    </dl>
+                    <dl class="week-day  light-bg">
+                        <dt>Perşembe</dt>
+                        <dd>8:30 - 17:30</dd>
+                    </dl>
+                    <dl class="week-day ">
+                        <dt>Cuma</dt>
+                        <dd>8:30 - 17:30</dd>
+                    </dl>
+                    <dl class="week-day  light-bg">
+                        <dt>Cumartesi</dt>
+                        <dd>KAPALI</dd>
+                    </dl>
+                    <dl class="week-day  closed today">
+                        <dt>Pazar</dt>
+                        <dd>KAPALI</dd>
+                    </dl>
+                </div><!-- /.featured-widget -->
+
+            </div><!-- /.widget_pw_opening_time -->
+
+        </div><!-- /.col -->
+
+        <div class="col-sm-9">
+
+            <h3 class="widget-title margin-top-0">
+                İletişim Formu
+            </h3>
+
+            <p>
+                Aşağıdaki formu kullanarak bize mesajınızı iletebilirsiniz.
+            </p>
+
+            <form data-toggle="validator" method="post" action="form.php" class="aSubmit">
+                <div style="display:none"><input type="text" name="maximus" value=""></div>
+                <input type="hidden" name="theSubject" value="CargoPress: Contact Request">
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="text" placeholder="İsim*" aria-invalid="false" aria-required="true" size="40" value="" name="your-name" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="text" placeholder="Soyisim*" aria-invalid="false" aria-required="true" size="40" value="" name="last-name" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="email" placeholder="E-mail Adres*" aria-invalid="false" aria-required="true" size="40" value="" name="your-email" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <div class="form-group">
+                            <input type="tel" placeholder="Telefon" aria-invalid="false" aria-required="true" size="40" value="" name="your-phone">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-8">
+                        <div class="form-group">
+                            <input type="text" placeholder="Konu*" aria-invalid="false" size="40" value="" name="your-subject" required>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <textarea placeholder="Mesaj*" aria-invalid="false" rows="10" cols="40" name="your-message" required></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="GÖNDER">
+                        <img class="ajax-loader" id="loader" src="images/ajax-loader.gif" alt="Gönderiliyor ..." style="display: none;">
+                    </div>
+                </div>
+                <div class="response success">Teşekkürler. Mesajınızı aldık. En kısa sürede size dönüş yapacağız.</div>
+                <div class="response error">Hata oluştu! Lütfen tekrar deneyin.</div>
+            </form>
+
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
