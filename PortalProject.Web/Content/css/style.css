@@ -762,6 +762,7 @@ body.boxed .footer-top::before, body.boxed .footer::before { display: none; }
 h1, h2, h3, h4, h5, h6 { color: #444444; font-family: Roboto; font-weight: 900; letter-spacing: -.05em; }
 
 h4.subLight { color: #bbb; }
+h4.subLight a { color: #bbb; }
 
 h3 { font-size: 27px; }
 

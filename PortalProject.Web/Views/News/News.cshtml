@@ -29,10 +29,10 @@
 
         @foreach (var item in Model.NewsList)
         {
-            <div class="col-sm-4">
+            <div class="col-sm-4 margin-bottom-30">
 
                 <h3>
-                    <img alt="placeholder" src="~/Content/@item.Photo" class="alignnone">
+                    <a href="/haberler/@item.SeoUrl/@item.Id"><img alt="placeholder" src="~/Content/@item.Photo" class="alignnone"></a>
                 </h3>
                 <h4 class="subLight">
                     @item.Title
