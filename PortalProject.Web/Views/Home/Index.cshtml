@@ -176,7 +176,7 @@
                         İnsansız Hava Aracı ihtiyaçlarınız için doğru adrestesiniz.
                     </div>
                     <div class="call-to-action__button">
-                        <a target="_blank" href="#" class="btn btn-primary">İLETİŞİM FORMU</a>
+                        <a target="_blank" href="/iletisim" class="btn btn-primary">İLETİŞİM FORMU</a>
                     </div>
                 </div><!-- /.call-to-action -->
 
@@ -227,7 +227,7 @@
                             </div>
                         </a>
                     }
-                    <a class="latest-news  latest-news--more-news" href="#">
+                    <a class="latest-news  latest-news--more-news" href="/haberler">
                         DİĞER HABERLER
                     </a>
                 </div><!-- /.widget_pw_latest_news -->
@@ -265,7 +265,7 @@
                     
                 </div><!-- /.gallery -->
                 <p>
-                    <a href="#" class="read-more">TÜM ALBÜMLERİ GÖR</a>
+                    <a href="/galeri" class="read-more">TÜM ALBÜMLERİ GÖR</a>
                 </p>
 
             </div><!-- /.widget_black-studio-tinymce -->
@@ -281,13 +281,13 @@
             @foreach (var item in Model.FaqList.Take(3))
             {
                 <h4>
-                    <a target="_blank" href="#" class="dark-link">@item.Title</a>
+                    <a href="/sss/@item.SeoUrl/@item.Id" class="dark-link">@item.Title</a>
                 </h4>
                 <hr>
             }
 
             <p>
-                <a href="#" class="read-more">DAHA FAZLA SORU</a>
+                <a href="/sss" class="read-more">DAHA FAZLA SORU</a>
             </p>
 
         </div><!-- /.col -->
