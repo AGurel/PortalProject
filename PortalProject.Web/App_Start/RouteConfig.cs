@@ -44,6 +44,12 @@ namespace PortalProject.Web
             );
 
             routes.MapRoute(
+                name: "SSS",
+                url: "sss",
+                defaults: new { controller = "Faq", action = "Faq" }
+            );
+
+            routes.MapRoute(
                 name: "News",
                 url: "haberler",
                 defaults: new { controller = "News", action = "News" }

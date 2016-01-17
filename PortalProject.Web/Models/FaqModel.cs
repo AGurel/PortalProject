@@ -9,5 +9,6 @@ namespace PortalProject.Web.Models
     public class FaqModel
     {
         public Faq Faq { get; set; }
+        public List<Faq> FaqList { get; set; }
     }
 }

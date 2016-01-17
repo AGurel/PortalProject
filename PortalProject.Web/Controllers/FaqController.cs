@@ -29,5 +29,13 @@ namespace PortalProject.Web.Controllers
 
             return View(_faqModel);
         }
+
+        public ActionResult Faq()
+        {
+            FaqModel _faqModel = new FaqModel();
+            _faqModel.FaqList = _faqService.GetAll().ToList();
+
+            return View(_faqModel);
+        }
     }
 }
