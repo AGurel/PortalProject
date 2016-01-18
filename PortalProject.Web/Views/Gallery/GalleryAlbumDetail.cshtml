@@ -27,18 +27,27 @@
 
 <div class="container">
 
-    <div class="row margin-bottom-30">
+    <div class="row margin-bottom-60">
 
-        @foreach (var item in Model.GalleryList)
-        {
-            <div class="col-sm-4 margin-bottom-30">
+        <div class="col-sm-12">
 
-                <figure class="gallery-item">
-                    <a href="~/Content/@item.Photo"><img alt="placeholder" src="~/Content/@item.Photo" class="alignnone"></a>
-                </figure>
+            <div class="widget_black-studio-tinymce">
 
-            </div><!-- /.col -->
-        }
+                <div class="gallery gallery-columns-3 gallery-size-medium">
+                    @foreach (var item in Model.GalleryList)
+                    {
+                        <figure class="gallery-item">
+                            <a href="~/Content/@item.Photo">
+                                <img alt="placeholder" src="~/Content/@item.Photo">
+                            </a>
+                        </figure>
+                    }
+
+                </div><!-- /.gallery -->
+
+            </div><!-- /.widget_black-studio-tinymce -->
+
+        </div><!-- /.col -->
 
     </div><!-- /.row -->
 

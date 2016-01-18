@@ -27,7 +27,7 @@ namespace PortalProject.Web
 
             routes.MapRoute(
                 name: "ProServiceDetail",
-                url: "hizmet/{title}/{proServiceId}",
+                url: "hizmetler/{title}/{proServiceId}",
                 defaults: new { controller = "ProService", action = "ProServiceDetail" }
             );
 
@@ -60,6 +60,18 @@ namespace PortalProject.Web
                 url: "iletisim",
                 defaults: new { controller = "Home", action = "Contact" }
             );
+
+            routes.MapRoute(
+               name: "Gallery",
+               url: "galeri",
+               defaults: new { controller = "Gallery", action = "GalleryAlbum" }
+           );
+
+            routes.MapRoute(
+               name: "GalleryAlbumDetail",
+               url: "galeri/{title}/{galleryAlbumId}",
+               defaults: new { controller = "Gallery", action = "GalleryAlbumDetail" }
+           );
 
             routes.MapRoute(
                name: "Default",

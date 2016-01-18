@@ -119,7 +119,7 @@
             @foreach (var item in Model.ProServiceList.Take(3))
             {
                 <div class="widget_pw_icon_box margin-bottom-30">
-                    <a target="_self" href="#" class="icon-box">
+                    <a target="_self" href="/hizmetler/@item.SeoUrl/@item.Id" class="icon-box">
                         <i class="fa @item.IconClass"></i>
                         <h4 class="icon-box__title">@item.Name</h4>
                         <span class="icon-box__subtitle">@item.Description</span>
@@ -134,7 +134,7 @@
             @foreach (var item in Model.ProServiceList.Skip(3).Take(3))
             {
                 <div class="widget_pw_icon_box margin-bottom-30">
-                    <a target="_self" href="#" class="icon-box">
+                    <a target="_self" href="/hizmetler/@item.SeoUrl/@item.Id" class="icon-box">
                         <i class="fa @item.IconClass"></i>
                         <h4 class="icon-box__title">@item.Name</h4>
                         <span class="icon-box__subtitle">@item.Description</span>
@@ -149,7 +149,7 @@
             @foreach (var item in Model.ProServiceList.Skip(6).Take(3))
             {
                 <div class="widget_pw_icon_box margin-bottom-30">
-                    <a target="_self" href="#" class="icon-box">
+                    <a target="_self" href="/hizmetler/@item.SeoUrl/@item.Id" class="icon-box">
                         <i class="fa @item.IconClass"></i>
                         <h4 class="icon-box__title">@item.Name</h4>
                         <span class="icon-box__subtitle">@item.Description</span>
