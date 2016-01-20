@@ -76,7 +76,8 @@ namespace PortalProject.Web
             routes.MapRoute(
                name: "Default",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "Home", action = "Index", Id = UrlParameter.Optional }
+               defaults: new { controller = "Home", action = "Index", Id = UrlParameter.Optional },
+               namespaces: new[] { "PortalProject.Web.Controllers" }
            );
 
         }
