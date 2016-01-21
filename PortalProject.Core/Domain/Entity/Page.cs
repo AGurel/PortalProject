@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using PortalProject.Core.Enums.Common;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PortalProject.Core.Domain.Entity
 {
@@ -9,7 +10,7 @@ namespace PortalProject.Core.Domain.Entity
         public string Content { get; set; }
         public string SeoUrl { get; set; }
         public int UpPageId { get; set; }
-        public int Active { get; set; }
+        public State Active { get; set; }
         public int Order { get; set; }
     }
 }

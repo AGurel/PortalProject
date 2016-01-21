@@ -16,61 +16,71 @@ namespace PortalProject.Web
             routes.MapRoute(
                 name: "PageDetail",
                 url: "sayfa/{title}/{pageId}",
-                defaults: new { controller = "Page", action = "PageDetail" }
+                defaults: new { controller = "Page", action = "PageDetail" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "ProductDetail",
                 url: "urun/{title}/{productId}",
-                defaults: new { controller = "Product", action = "ProductDetail" }
+                defaults: new { controller = "Product", action = "ProductDetail" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "ProServiceDetail",
                 url: "hizmetler/{title}/{proServiceId}",
-                defaults: new { controller = "ProService", action = "ProServiceDetail" }
+                defaults: new { controller = "ProService", action = "ProServiceDetail" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "NewsDetail",
                 url: "haberler/{title}/{newsId}",
-                defaults: new { controller = "News", action = "NewsDetail" }
+                defaults: new { controller = "News", action = "NewsDetail" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "SSSDetail",
                 url: "sss/{title}/{faqId}",
-                defaults: new { controller = "Faq", action = "FaqDetail" }
+                defaults: new { controller = "Faq", action = "FaqDetail" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "SSS",
                 url: "sss",
-                defaults: new { controller = "Faq", action = "Faq" }
+                defaults: new { controller = "Faq", action = "Faq" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "News",
                 url: "haberler",
-                defaults: new { controller = "News", action = "News" }
+                defaults: new { controller = "News", action = "News" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                 name: "Contact",
                 url: "iletisim",
-                defaults: new { controller = "Home", action = "Contact" }
+                defaults: new { controller = "Home", action = "Contact" },
+                namespaces: new[] { "PortalProject.Web.Controllers" }
             );
 
             routes.MapRoute(
                name: "Gallery",
                url: "galeri",
-               defaults: new { controller = "Gallery", action = "GalleryAlbum" }
+               defaults: new { controller = "Gallery", action = "GalleryAlbum" },
+               namespaces: new[] { "PortalProject.Web.Controllers" }
            );
 
             routes.MapRoute(
                name: "GalleryAlbumDetail",
                url: "galeri/{title}/{galleryAlbumId}",
-               defaults: new { controller = "Gallery", action = "GalleryAlbumDetail" }
+               defaults: new { controller = "Gallery", action = "GalleryAlbumDetail" },
+               namespaces: new[] { "PortalProject.Web.Controllers" }
            );
 
             routes.MapRoute(

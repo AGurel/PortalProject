@@ -1,4 +1,5 @@
 ﻿using PortalProject.Core.Domain.Entity;
+using PortalProject.Core.Enums.Common;
 using PortalProject.Data.Repository;
 using PortalProject.Data.UnitOfWork;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace PortalProject.Service.Pages
         /// <returns></returns>
         public IQueryable<Page> GetAll()
         {
-            return _pageRepository.GetAll();
+            return _pageRepository.GetAll().Where(x => x.Active == State.Active).OrderBy(x => x.Order);
         }
 
         /// <summary>
