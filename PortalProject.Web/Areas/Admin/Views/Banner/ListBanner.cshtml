@@ -27,8 +27,13 @@
                                     <td>@item.TitleMain</td>
                                     <td style="width:150px;">@(item.Active == PortalProject.Core.Enums.Common.State.Active ? "Aktif" : "Pasif")</td>
                                     <td style="width:150px;">
-                                        <a href="/admin/banner/edit/@item.Id" class="btn btn-default">Düzenle</a>
-                                        <a id="aDelete" href="" class="btn btn-danger" onclick="return confirm('Are you sure?');">Sil</a>
+                                        @using (Html.BeginForm("BannerDelete", "Banner", new { bannerId = item.Id }, System.Web.Mvc.FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            <a href="/admin/banner/edit/@item.Id" class="btn btn-default">Düzenle</a>
+
+                                            <input type="submit" id="aDelete" href="#" class="btn btn-danger" onclick="return confirm('Are you sure?');" value="Sil" />
+                                        }
                                     </td>
                                 </tr>
                             }
