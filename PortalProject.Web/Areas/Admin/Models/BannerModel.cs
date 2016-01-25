@@ -9,6 +9,7 @@ namespace PortalProject.Web.Areas.Admin.Models
 {
     public class BannerModel
     {
+        public int Id { get; set; }
         public string TitleMain { get; set; }
         public string TitleSub { get; set; }
         public string Photo { get; set; }

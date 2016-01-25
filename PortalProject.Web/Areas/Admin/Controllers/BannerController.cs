@@ -36,6 +36,24 @@ namespace PortalProject.Web.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult Edit(int id)
+        {
+            Banner banner = _bannerService.Find(id);
+
+            BannerModel _bannerModel = new BannerModel
+            {
+                Id = banner.Id,
+                TitleMain = banner.TitleMain,
+                TitleSub = banner.TitleSub,
+                Active = banner.Active,
+                Order = banner.Order,
+                Url = banner.Url,
+                UrlTarget = banner.UrlTarget
+            };
+
+            return View(_bannerModel);
+        }
+
         [HttpPost]
         public ActionResult BannerAdd(BannerModel model, HttpPostedFileBase Photo)
         {
@@ -43,14 +61,15 @@ namespace PortalProject.Web.Areas.Admin.Controllers
             {
                 var fileName = Path.GetFileNameWithoutExtension(Photo.FileName);
                 var extension = Path.GetExtension(Photo.FileName);
-                var path = Path.Combine(Server.MapPath("~/Content/images/manset"), Guid.NewGuid() + fileName.Replace(" ","").Replace(".","") + extension);
+                var fileFullName = Guid.NewGuid() + fileName.Replace(" ", "").Replace(".", "") + extension;
+                var path = Path.Combine(Server.MapPath("~/Content/images/manset"), fileFullName);
                 Photo.SaveAs(path);
 
                 Banner banner = new Banner
                 {
                     TitleMain = model.TitleMain,
                     TitleSub = model.TitleSub,
-                    Photo = fileName,
+                    Photo = "images/manset/" + fileFullName,
                     Url = model.Url,
                     UrlTarget = model.UrlTarget,
                     Order = model.Order,
@@ -60,6 +79,35 @@ namespace PortalProject.Web.Areas.Admin.Controllers
                 _bannerService.Insert(banner);
                 _uow.SaveChanges();
             }
+
+            return RedirectToAction("ListBanner");
+        }
+
+        [HttpPost]
+        public ActionResult BannerEdit(BannerModel model, HttpPostedFileBase Photo)
+        {
+            int id = int.Parse(Request.Form["hfId"]);
+            Banner banner = _bannerService.Find(id);
+
+            if (Photo != null)
+            {
+                var fileName = Path.GetFileNameWithoutExtension(Photo.FileName);
+                var extension = Path.GetExtension(Photo.FileName);
+                var fileFullName = Guid.NewGuid() + fileName.Replace(" ", "").Replace(".", "") + extension;
+                var path = Path.Combine(Server.MapPath("~/Content/images/manset"), fileFullName);
+                Photo.SaveAs(path);
+                banner.Photo = "images/manset/" + fileFullName;
+            }
+
+            banner.TitleMain = model.TitleMain;
+            banner.TitleSub = model.TitleSub;
+            banner.Url = model.Url;
+            banner.UrlTarget = model.UrlTarget;
+            banner.Active = model.Active;
+            banner.Order = model.Order;
+
+            _bannerService.Update(banner);
+            _uow.SaveChanges();
 
             return RedirectToAction("ListBanner");
         }
