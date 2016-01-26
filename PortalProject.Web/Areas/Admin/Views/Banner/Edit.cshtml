@@ -26,8 +26,8 @@
                             <div class="form-group">
                                 <label>Durum</label>
                                 <select name="Active" class="form-control">
-                                    <option value="1" @(Model.Active == "1" ? "selected=selected" : " ")>Aktif</option>
-                                    <option value="0" @(Model.Active == "1" ? "selected=selected" : " ")>Pasif</option>
+                                    <option value="1" @(Model.Active == PortalProject.Core.Enums.Common.State.Active ? "selected=selected" : " ")>Aktif</option>
+                                    <option value="0" @(Model.Active == PortalProject.Core.Enums.Common.State.Passive ? "selected=selected" : " ")>Pasif</option>
                                 </select>
                             </div>
 

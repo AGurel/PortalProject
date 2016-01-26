@@ -53,6 +53,7 @@ namespace PortalProject.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult NewsAdd(NewsModel model, HttpPostedFileBase Photo)
         {
             if (Photo != null)
@@ -81,6 +82,7 @@ namespace PortalProject.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult NewsEdit(NewsModel model, HttpPostedFileBase Photo)
         {
             int id = int.Parse(Request.Form["hfId"]);

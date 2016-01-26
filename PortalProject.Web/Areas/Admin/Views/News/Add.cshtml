@@ -1,5 +1,18 @@
 ﻿@model PortalProject.Web.Areas.Admin.Models.NewsModel
+@{
+    <script src="~/areas/admin/ckfinder/ckfinder.js"></script>
+    <script src="~/areas/admin/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
 
+    <script>
+    $(function () {
+        @* Burada Ckeditorün içine Ckfinder'ı dahil ettik.*@
+
+        CKEDITOR.replace("txtIcerik");
+        CKFinder.setupCKEditor(null, "/areas/admin/ckfinder/");
+    });
+    </script>
+}
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Haber Ekle</h1>
@@ -18,7 +31,7 @@
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label>Görsel (1920 x 600 px)</label>
+                                <label>Görsel (360 x 204 px)</label>
                                 <input type="file" name="Photo" class="form-control" required>
                             </div>
 
@@ -28,9 +41,7 @@
                                     <option value="1">Aktif</option>
                                     <option value="0">Pasif</option>
                                 </select>
-                            </div>
-
-                            <input type="submit" class="btn btn-default" value="Kaydet" />
+                            </div>                   
                         </div>
 
                         <div class="col-lg-6">
@@ -47,8 +58,16 @@
                                 <input name="Creator" class="form-control" placeholder="Örn: Abdurrahman GÜREL" required>
                             </div>
                         </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>İçerik</label>
+                                <textarea id="txtIcerik" name="Content" rows="2" cols="20"></textarea>
+                            </div>
+                            <input type="submit" class="btn btn-default" value="Kaydet" />
+                        </div>
                     }
-                </div>
+    </div>
                 <!-- /.row (nested) -->
             </div>
             <!-- /.panel-body -->
