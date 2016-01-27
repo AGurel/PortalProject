@@ -23,7 +23,7 @@ namespace PortalProject.Service.Banners
         /// <returns></returns>
         public IQueryable<Banner> GetAll()
         {
-            return _bannerRepository.GetAll().Where(x => x.Active == State.Active).OrderBy(x => x.Order);
+            return _bannerRepository.GetAll().OrderBy(x => x.Order);
         }
         
         /// <summary>

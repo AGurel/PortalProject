@@ -23,7 +23,7 @@ namespace PortalProject.Service.Pages
         /// <returns></returns>
         public IQueryable<Page> GetAll()
         {
-            return _pageRepository.GetAll().Where(x => x.Active == State.Active).OrderBy(x => x.Order);
+            return _pageRepository.GetAll().OrderBy(x => x.Order);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace PortalProject.Service.Pages
         /// <returns></returns>
         public IQueryable<Page> GetUpPages()
         {
-            return _pageRepository.GetAll().Where(x => x.UpPageId == 0);
+            return _pageRepository.GetAll().Where(x => x.UpPageId == 0).OrderBy(x => x.Order);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace PortalProject.Service.Pages
         /// <returns></returns>
         public IQueryable<Page> GetSubPages()
         {
-            return _pageRepository.GetAll().Where(x => x.UpPageId != 0);
+            return _pageRepository.GetAll().Where(x => x.UpPageId != 0).OrderBy(x => x.Order);
         }
         
         /// <summary>

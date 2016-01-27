@@ -1,4 +1,5 @@
-﻿using PortalProject.Data.UnitOfWork;
+﻿using PortalProject.Core.Enums.Common;
+using PortalProject.Data.UnitOfWork;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Newss;
 using PortalProject.Service.Pages;
@@ -33,7 +34,7 @@ namespace PortalProject.Web.Controllers
         public ActionResult News()
         {
             NewsModel _newsModel = new NewsModel();
-            _newsModel.NewsList = _newsService.GetAll().ToList();
+            _newsModel.NewsList = _newsService.GetAll().Where(x => x.Active == State.Active).ToList();
 
             return View(_newsModel);
         }

@@ -23,7 +23,7 @@ namespace PortalProject.Service.Faqs
         /// <returns></returns>
         public IQueryable<Faq> GetAll()
         {
-            return _faqRepository.GetAll().Where(x => x.Active == State.Active).OrderBy(x => x.Order);
+            return _faqRepository.GetAll().OrderBy(x => x.Order);
         }
         
         /// <summary>

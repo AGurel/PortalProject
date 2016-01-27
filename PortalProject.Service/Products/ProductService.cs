@@ -27,7 +27,7 @@ namespace PortalProject.Service.Products
         /// <returns></returns>
         public IQueryable<Product> GetAll()
         {
-            return _productRepository.GetAll().Where(x => x.Active == State.Active).OrderBy(x => x.Order);
+            return _productRepository.GetAll().OrderBy(x => x.Order);
         }
         
         /// <summary>

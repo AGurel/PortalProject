@@ -1,4 +1,5 @@
-﻿using PortalProject.Data.UnitOfWork;
+﻿using PortalProject.Core.Enums.Common;
+using PortalProject.Data.UnitOfWork;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Galleries;
 using PortalProject.Service.GalleryAlbums;
@@ -28,7 +29,7 @@ namespace PortalProject.Web.Controllers
         public ActionResult GalleryAlbum()
         {
             GalleryModel _galleryModel = new GalleryModel();
-            _galleryModel.GalleryAlbumList = _galleryAlbumService.GetAll().ToList();
+            _galleryModel.GalleryAlbumList = _galleryAlbumService.GetAll().Where(x => x.Active == State.Active).ToList();
 
             return View(_galleryModel);
         }

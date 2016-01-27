@@ -14,6 +14,7 @@ using PortalProject.Service.Galleries;
 using PortalProject.Service.Settings;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Pages;
+using PortalProject.Core.Enums.Common;
 
 namespace PortalProject.Web.Controllers
 {
@@ -42,11 +43,11 @@ namespace PortalProject.Web.Controllers
         {
             HomeModel _homeModel = new HomeModel();
 
-            _homeModel.BannerList = _bannerService.GetAll().ToList();
-            _homeModel.ProductList = _productService.GetAll().ToList();
-            _homeModel.ProServiceList = _proServiceService.GetAll().ToList();
-            _homeModel.NewsList = _newsService.GetAll().ToList();
-            _homeModel.FaqList = _faqService.GetAll().ToList();
+            _homeModel.BannerList = _bannerService.GetAll().Where(x => x.Active == State.Active).ToList();
+            _homeModel.ProductList = _productService.GetAll().Where(x => x.Active == State.Active).ToList();
+            _homeModel.ProServiceList = _proServiceService.GetAll().Where(x => x.Active == State.Active).ToList();
+            _homeModel.NewsList = _newsService.GetAll().Where(x => x.Active == State.Active).ToList();
+            _homeModel.FaqList = _faqService.GetAll().Where(x => x.Active == State.Active).ToList();
             _homeModel.GalleryList = _galleryService.GetRandomGalleries(6).ToList();
 
             return View(_homeModel);

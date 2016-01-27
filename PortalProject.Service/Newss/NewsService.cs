@@ -23,7 +23,7 @@ namespace PortalProject.Service.Newss
         /// <returns></returns>
         public IQueryable<News> GetAll()
         {
-            return _newsRepository.GetAll().Where(x => x.Active == State.Active).OrderByDescending(x => x.Date);
+            return _newsRepository.GetAll().OrderByDescending(x => x.Date);
         }
         
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using PortalProject.Data.UnitOfWork;
+﻿using PortalProject.Core.Enums.Common;
+using PortalProject.Data.UnitOfWork;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Faqs;
 using PortalProject.Service.Pages;
@@ -33,7 +34,7 @@ namespace PortalProject.Web.Controllers
         public ActionResult Faq()
         {
             FaqModel _faqModel = new FaqModel();
-            _faqModel.FaqList = _faqService.GetAll().ToList();
+            _faqModel.FaqList = _faqService.GetAll().Where(x => x.Active == State.Active).ToList();
 
             return View(_faqModel);
         }
