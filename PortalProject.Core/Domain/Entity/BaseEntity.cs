@@ -1,4 +1,5 @@
 ﻿
+using PortalProject.Core.Enums.Common;
 namespace PortalProject.Core.Domain.Entity
 {
     /// <summary>
@@ -7,5 +8,7 @@ namespace PortalProject.Core.Domain.Entity
     public abstract class BaseEntity
     {
         public int Id { get; set; }
+        public RecordLocation Location { get; set; }
+        public Language Language { get; set; }
     }
 }

@@ -1,23 +1,23 @@
 ﻿@model PortalProject.Web.Models.GalleryModel
 
 @{
-    ViewBag.Title = "Galeri | " + ViewBag.Setting.Title;
+    ViewBag.Title = PortalProject.Web.Resources.Resource.Galeri + " | " + ViewBag.Setting.Title;
 }
 
 <!-- MAIN TITLE -->
 <div class="main-title">
     <div class="container">
-        <h1 class="main-title__primary">Galeri</h1>
+        <h1 class="main-title__primary">@PortalProject.Web.Resources.Resource.Galeri</h1>
     </div>
 </div><!-- /.main-title -->
 <!-- BREADCRUMBS -->
 <div class="breadcrumbs">
     <div class="container">
         <span>
-            <a class="home" href="/" title="Anasayfaya Dön" rel="v:url">Anasayfa</a>
+            <a class="home" href="/@PortalProject.Web.Resources.Resource.Dil" title="@PortalProject.Web.Resources.Resource.AnasayfayaDon" rel="v:url">@PortalProject.Web.Resources.Resource.Anasayfa</a>
         </span>
         <span>
-            <span>Galeri</span>
+            <span>@PortalProject.Web.Resources.Resource.Galeri</span>
         </span>
     </div>
 </div><!-- /.breadcrumbs -->

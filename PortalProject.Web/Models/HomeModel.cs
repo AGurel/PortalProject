@@ -11,5 +11,11 @@ namespace PortalProject.Web.Models
         public List<News> NewsList { get; set; }
         public List<Faq> FaqList { get; set; }
         public List<Gallery> GalleryList { get; set; }
+        public Page pageAbout { get; set; }
+
+        public string frmNameSurname { get; set; }
+        public string frmEMail { get; set; }
+        public string frmMessage { get; set; }
+
     }
 }

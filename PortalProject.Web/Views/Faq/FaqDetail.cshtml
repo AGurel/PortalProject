@@ -13,10 +13,13 @@
 <div class="breadcrumbs">
     <div class="container">
         <span>
-            <a class="home" href="/" title="Anasayfaya Git" rel="v:url">Anasayfa</a>
+            <a class="home" href="/@PortalProject.Web.Resources.Resource.Dil" title="@PortalProject.Web.Resources.Resource.AnasayfayaDon" rel="v:url">@PortalProject.Web.Resources.Resource.Anasayfa</a>
         </span>
         <span>
-            <a href="/sss" title="Anasayfaya Git" rel="v:url">SSS</a>
+            <a class="home" href="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? "/" + PortalProject.Web.Resources.Resource.IHAKisa.ToLower() : "/" + PortalProject.Web.Resources.Resource.EAKisa.ToLower())" title="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? PortalProject.Web.Resources.Resource.IHA : PortalProject.Web.Resources.Resource.EA)" rel="v:url">@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? @PortalProject.Web.Resources.Resource.IHA : @PortalProject.Web.Resources.Resource.EA)</a>
+        </span>
+        <span>
+            <a href="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? "/iha/sss" : "/ea/sss")" title="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? PortalProject.Web.Resources.Resource.IHA : PortalProject.Web.Resources.Resource.EA) @PortalProject.Web.Resources.Resource.SSS" rel="v:url">@PortalProject.Web.Resources.Resource.SSS</a>
         </span>
         <span>
             <span>@Model.Faq.Title</span>

@@ -2,6 +2,7 @@
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Pages;
 using PortalProject.Service.Products;
+using PortalProject.Service.ProServices;
 using PortalProject.Service.Settings;
 using PortalProject.Web.Models;
 using System;
@@ -16,8 +17,8 @@ namespace PortalProject.Web.Controllers
     {
         private readonly IProductService _productService;
 
-        public ProductController(ISettingService settingService, IContactService contactService, IPageService pageService, IProductService productService, IUnitOfWork uow)
-            : base(settingService, contactService, pageService, uow)
+        public ProductController(ISettingService settingService, IContactService contactService, IPageService pageService, IProductService productService, IProServiceService proServiceService, IUnitOfWork uow)
+            : base(settingService, contactService, pageService, proServiceService, uow)
         {
             _productService = productService;
         }

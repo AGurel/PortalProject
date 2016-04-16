@@ -41,5 +41,10 @@ namespace PortalProject.Service.Contacts
         /// </summary>
         /// <param name="contactId"></param>
         void Delete(int contactId);
+
+        /// <summary>
+        /// Send e-mail with settings in web.config
+        /// </summary>
+        void SendMail(string mailFrom, string mailTo, string subject, string mailBody);
     }
 }

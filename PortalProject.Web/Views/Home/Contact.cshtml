@@ -1,44 +1,34 @@
-﻿
+﻿@model PortalProject.Web.Models.ContactModel
 @{
-    ViewBag.Title = "İletişim Bilgileri | " + ViewBag.Setting.Title;
+    ViewBag.Title = PortalProject.Web.Resources.Resource.İletisimBilgileriCap + " | " + ViewBag.Setting.Title;
 }
 
-<script>
-	/* Google Map Market Settings */
-
-	var mapMarkers = [
-		{
-			"id": "1",
-			"title": "CargoPress",
-			"address": "Changi Airport, Singapore",
-			"custompinimage": "images\/pin.png"
-		}
-	]
-</script>
+<script src="@Url.Content("~/Scripts/js/jquery-2.1.4.min.js")" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
 
 <!-- MAIN TITLE -->
 <div class="main-title">
     <div class="container">
-        <h1 class="main-title__primary">İletişim Bilgileri</h1>
-        <h3 class="main-title__secondary">Aşağıdaki formu kullanarak bize mesajınızı iletebilirsiniz.</h3>
+        <h1 class="main-title__primary">@PortalProject.Web.Resources.Resource.İletisimBilgileriCap</h1>
+        <h3 class="main-title__secondary">@PortalProject.Web.Resources.Resource.IletisimSayfaForm</h3>
     </div>
 </div><!-- /.main-title -->
 <!-- BREADCRUMBS -->
 <div class="breadcrumbs margin-bottom-0">
     <div class="container">
         <span>
-            <a class="home" href="/" title="Anasayfaya Dön" rel="v:url">Anasayfa</a>
+            <a class="home" href="/@PortalProject.Web.Resources.Resource.Dil" title="@PortalProject.Web.Resources.Resource.AnasayfayaDon" rel="v:url">@PortalProject.Web.Resources.Resource.Anasayfa</a>
         </span>
         <span>
-            <span>İletişim</span>
+            <span>@PortalProject.Web.Resources.Resource.İletisimBilgileriCap</span>
         </span>
     </div>
 </div><!-- /.breadcrumbs -->
 <!-- MAP -->
 <div class="map margin-bottom-60">
 
-    <div data-type="roadmap" data-zoom="11" data-markers='[{"id":"1","title":"CargoPress","address":"Kalmoesstraat 20, Apeldoorn","custompinimage":"images\/pin.png"}]' class="simple-map js-where-we-are"></div>
-
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3062.5364214692877!2d32.73618305328336!3d39.86222076255393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1456171352298" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+    
 </div><!-- /.map -->
 
 <div class="container">
@@ -50,7 +40,7 @@
             <div class="widget_black-studio-tinymce">
                 <div class="featured-widget">
                     <h3 class="widget-title">
-                        <span class="widget-title__inline">İletişim</span>
+                        <span class="widget-title__inline">@PortalProject.Web.Resources.Resource.İletisimBilgileriCap</span>
                     </h3>
                     <p>
                         @ViewBag.Contact.Address
@@ -62,104 +52,109 @@
                 </div>
             </div>
 
-            <div class="widget_pw_opening_time">
+            @*<div class="widget_pw_opening_time">
 
                 <div class="featured-widget">
                     <h3>
                         <span class="icon icons-ornament-left"></span>
-                        Çalışma Saatleri
+                        @PortalProject.Web.Resources.Resource.CalismaSaatleri
                         <span class="icon icons-ornament-right"></span>
                     </h3>
                     <dl class="week-day ">
-                        <dt>Pazartesi</dt>
+                        <dt>@PortalProject.Web.Resources.Resource.Pazartesi</dt>
                         <dd>8:30 - 17:30</dd>
                     </dl>
                     <dl class="week-day  light-bg">
-                        <dt>Salı</dt>
+                        <dt>@PortalProject.Web.Resources.Resource.Sali</dt>
                         <dd>8:30 - 17:30</dd>
                     </dl>
                     <dl class="week-day ">
-                        <dt>Çarşamba</dt>
+                        <dt>@PortalProject.Web.Resources.Resource.Carsamba</dt>
                         <dd>8:30 - 17:30</dd>
                     </dl>
                     <dl class="week-day  light-bg">
-                        <dt>Perşembe</dt>
+                        <dt>@PortalProject.Web.Resources.Resource.Persembe</dt>
                         <dd>8:30 - 17:30</dd>
                     </dl>
                     <dl class="week-day ">
-                        <dt>Cuma</dt>
+                        <dt>@PortalProject.Web.Resources.Resource.Cuma</dt>
                         <dd>8:30 - 17:30</dd>
                     </dl>
                     <dl class="week-day  light-bg closed">
-                        <dt>Cumartesi</dt>
-                        <dd>KAPALI</dd>
+                        <dt>@PortalProject.Web.Resources.Resource.Cumartesi</dt>
+                        <dd>@PortalProject.Web.Resources.Resource.Kapali</dd>
                     </dl>
                     <dl class="week-day  closed">
-                        <dt>Pazar</dt>
-                        <dd>KAPALI</dd>
+                        <dt>@PortalProject.Web.Resources.Resource.Pazar</dt>
+                        <dd>@PortalProject.Web.Resources.Resource.Kapali</dd>
                     </dl>
                 </div><!-- /.featured-widget -->
 
-            </div><!-- /.widget_pw_opening_time -->
+            </div><!-- /.widget_pw_opening_time -->*@
 
         </div><!-- /.col -->
 
         <div class="col-sm-9">
 
             <h3 class="widget-title margin-top-0">
-                İletişim Formu
+                @PortalProject.Web.Resources.Resource.IletisimFormu
             </h3>
 
             <p>
-                Aşağıdaki formu kullanarak bize mesajınızı iletebilirsiniz.
+                @PortalProject.Web.Resources.Resource.IletisimSayfaForm
             </p>
+            <script type="text/javascript">
+                function onBegin() {
+                    $("#btnSend").hide();
+                }
 
-            <form data-toggle="validator" method="post" action="form.php" class="aSubmit">
-                <div style="display:none"><input type="text" name="maximus" value=""></div>
-                <input type="hidden" name="theSubject" value="CargoPress: Contact Request">
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" placeholder="İsim*" aria-invalid="false" aria-required="true" size="40" value="" name="your-name" required>
+                function onComplete() {
+                    $("#btnSend").show();
+                    $('#form0').trigger("reset");
+                    
+                }
+            </script>
+            <form action="~/tr/SendContactMail" data-ajax="true" data-ajax-begin="onBegin" data-ajax-complete="onComplete" data-ajax-loading="#loading" data-ajax-mode="replace" data-ajax-update="#result" id="form0" method="post">
+
+                @Html.AntiForgeryToken()
+                <div class="aSubmit">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" placeholder="@PortalProject.Web.Resources.Resource.Isim*" aria-invalid="false" aria-required="true" size="40" value="" name="frmName" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <input type="text" placeholder="@PortalProject.Web.Resources.Resource.Soyisim*" aria-invalid="false" aria-required="true" size="40" value="" name="frmSurname" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-4">
-                        <div class="form-group">
-                            <input type="text" placeholder="Soyisim*" aria-invalid="false" aria-required="true" size="40" value="" name="last-name" required>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <input type="email" placeholder="@PortalProject.Web.Resources.Resource.EMailAdresi*" aria-invalid="false" aria-required="true" size="40" value="" name="frmEMail" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group">
+                                <input type="tel" placeholder="@PortalProject.Web.Resources.Resource.Telefon" aria-invalid="false" aria-required="true" size="40" value="" name="frmPhone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <textarea placeholder="@PortalProject.Web.Resources.Resource.Mesaj*" aria-invalid="false" rows="10" cols="40" name="frmMessage" required></textarea>
+                            </div>
+                            <input type="submit" class="btn btn-primary" id="btnSend" value="@PortalProject.Web.Resources.Resource.Gonder">
+                            <div id="result"></div>
+                            <div id="loading" style="display:none;">@PortalProject.Web.Resources.Resource.TalepIletiliyor</div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <div class="form-group">
-                            <input type="email" placeholder="E-mail Adres*" aria-invalid="false" aria-required="true" size="40" value="" name="your-email" required>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-4">
-                        <div class="form-group">
-                            <input type="tel" placeholder="Telefon" aria-invalid="false" aria-required="true" size="40" value="" name="your-phone">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-8">
-                        <div class="form-group">
-                            <input type="text" placeholder="Konu*" aria-invalid="false" size="40" value="" name="your-subject" required>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="form-group">
-                            <textarea placeholder="Mesaj*" aria-invalid="false" rows="10" cols="40" name="your-message" required></textarea>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="GÖNDER">
-                        <img class="ajax-loader" id="loader" src="images/ajax-loader.gif" alt="Gönderiliyor ..." style="display: none;">
-                    </div>
-                </div>
-                <div class="response success">Teşekkürler. Mesajınızı aldık. En kısa sürede size dönüş yapacağız.</div>
-                <div class="response error">Hata oluştu! Lütfen tekrar deneyin.</div>
             </form>
-
-        </div><!-- /.col -->
+</div><!-- /.col -->
 
     </div><!-- /.row -->
 

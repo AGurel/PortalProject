@@ -16,6 +16,9 @@
             <a class="home" href="/" title="Anasayfaya Git" rel="v:url">Anasayfa</a>
         </span>
         <span>
+            <a class="home" href="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" ? "/iha" : "/ea")" title="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" ? "İnsansız Hava Araçları (İHA)" : "Elektrikli Araçlar (EA)")" rel="v:url">@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" ? "İnsansız Hava Araçları (İHA)" : "Elektrikli Araçlar (EA)")</a>
+        </span>
+        <span>
             <span>@Model.Product.Name</span>
         </span>
     </div>

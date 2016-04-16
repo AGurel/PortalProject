@@ -51,6 +51,8 @@
     <Compile Include="Domain\Entity\Product.cs" />
     <Compile Include="Domain\Entity\ProService.cs" />
     <Compile Include="Domain\Entity\Setting.cs" />
+    <Compile Include="Enums\Common\RecordLocation.cs" />
+    <Compile Include="Enums\Common\Language.cs" />
     <Compile Include="Enums\Common\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

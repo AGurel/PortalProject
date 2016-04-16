@@ -4,6 +4,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using PortalProject.IOC;
 using System;
+using System.Web;
+using System.Threading;
+using PortalProject.Web.Classes;
 
 namespace PortalProject.Web
 {
@@ -20,6 +23,8 @@ namespace PortalProject.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CultureAwareControllerActivator()));
 
             Bootstrapper.Initialise();
         }

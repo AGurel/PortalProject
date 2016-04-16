@@ -17,7 +17,7 @@ namespace PortalProject.Web.Controllers
          private readonly IProServiceService _proServiceService;
 
          public ProServiceController(ISettingService settingService, IContactService contactService, IPageService pageService, IProServiceService proServiceService, IUnitOfWork uow)
-            : base(settingService, contactService, pageService, uow)
+            : base(settingService, contactService, pageService, proServiceService, uow)
         {
             _proServiceService = proServiceService;
         }

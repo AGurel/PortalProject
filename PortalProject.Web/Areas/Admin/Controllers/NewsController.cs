@@ -71,7 +71,8 @@ namespace PortalProject.Web.Areas.Admin.Controllers
                     Photo = "images/haber/" + fileFullName,
                     Creator = model.Creator,
                     Date = model.Date,
-                    Title = model.Title
+                    Title = model.Title,
+                    SeoUrl = Change(model.Title)
                 };
 
                 _newsService.Insert(news);
@@ -103,6 +104,7 @@ namespace PortalProject.Web.Areas.Admin.Controllers
             news.Creator = model.Creator;
             news.Date = model.Date;
             news.Title = model.Title;
+            news.SeoUrl = Change(model.Title);
 
             _newsService.Update(news);
             _uow.SaveChanges();
@@ -117,6 +119,36 @@ namespace PortalProject.Web.Areas.Admin.Controllers
             _uow.SaveChanges();
 
             return RedirectToAction("ListNews");
+        }
+
+
+        public static string Change(string dosyaAdi)
+        {
+            //Bu metodumuzlada Türkçe karakterleri temizleyip ingilizceye uyarlıyoruz
+            string Temp = dosyaAdi.ToLower();
+
+            Temp = Temp.Replace(" ", "-").ToString();
+            Temp = Temp.Replace("ç", "c").ToString(); Temp = Temp.Replace("ğ", "g").ToString();
+            Temp = Temp.Replace("ı", "i").ToString(); Temp = Temp.Replace("ö", "o").ToString();
+            Temp = Temp.Replace("ş", "s").ToString(); Temp = Temp.Replace("ü", "u").ToString();
+            Temp = Temp.Replace("\"", "").ToString(); Temp = Temp.Replace("/", "").ToString();
+            Temp = Temp.Replace("(", "").ToString(); Temp = Temp.Replace(")", "").ToString();
+            Temp = Temp.Replace("{", "").ToString(); Temp = Temp.Replace("}", "").ToString();
+            Temp = Temp.Replace("%", "").ToString(); Temp = Temp.Replace("&", "").ToString();
+            Temp = Temp.Replace("+", "").ToString(); Temp = Temp.Replace(",", "").ToString();
+            Temp = Temp.Replace("?", "").ToString(); Temp = Temp.Replace(".", "_").ToString();
+            Temp = Temp.Replace("ı", "i").ToString(); Temp = Temp.Replace("'", "_").ToString();
+            Temp = Temp.Replace("!", "").ToString();
+            Temp = Temp.Replace("#", "").ToString();
+            Temp = Temp.Replace("$", "").ToString();
+            Temp = Temp.Replace("Ğ", "G").ToString();
+            Temp = Temp.Replace("Ç", "C").ToString();
+            Temp = Temp.Replace("İ", "I").ToString();
+            Temp = Temp.Replace("Ş", "S").ToString();
+            Temp = Temp.Replace("Ü", "U").ToString();
+            Temp = Temp.Replace("Ö", "O").ToString();
+            Temp = Temp.Replace(":", "-").ToString();
+            return Temp;
         }
     }
 }

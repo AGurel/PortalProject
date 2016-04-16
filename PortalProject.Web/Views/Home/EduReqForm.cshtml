@@ -1,0 +1,143 @@
+﻿@model PortalProject.Web.Models.EduReqModel
+@{
+    ViewBag.Title = PortalProject.Web.Resources.Resource.IHAEgitimTalepFormu + " | " + ViewBag.Setting.Title;
+}
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+
+<!-- MAIN TITLE -->
+<div class="main-title">
+    <div class="container">
+        <h1 class="main-title__primary">@PortalProject.Web.Resources.Resource.IHAEgitimTalepFormu</h1>
+        <h3 class="main-title__secondary">@PortalProject.Web.Resources.Resource.EgitimTalepFormBilgi</h3>
+    </div>
+</div><!-- /.main-title -->
+<!-- BREADCRUMBS -->
+<div class="breadcrumbs">
+    <div class="container">
+        <span>
+            <a class="home" href="/" title="@PortalProject.Web.Resources.Resource.AnasayfayaDon" rel="v:url">@PortalProject.Web.Resources.Resource.Anasayfa</a>
+        </span>
+        <span>
+            <a class="home" href="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? "/" + PortalProject.Web.Resources.Resource.IHAKisa.ToLower() : "/" + PortalProject.Web.Resources.Resource.EAKisa.ToLower())" title="@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? PortalProject.Web.Resources.Resource.IHA : PortalProject.Web.Resources.Resource.EA)" rel="v:url">@(ViewContext.RouteData.GetRequiredString("actionName") == "iha" || ViewContext.RouteData.GetRequiredString("actionName") == "uav" ? @PortalProject.Web.Resources.Resource.IHA : @PortalProject.Web.Resources.Resource.EA)</a>
+        </span>
+        <span>
+            <span>@PortalProject.Web.Resources.Resource.IHAEgitimTalepFormu</span>
+        </span>
+    </div>
+</div><!-- /.breadcrumbs -->
+
+<div class="container">
+
+    <div class="row">
+
+        <main class="col-xs-12 col-md-12">
+
+            <div class="row margin-bottom-30">
+
+                <div class="col-sm-12">
+
+                    <script type="text/javascript">
+                        function onBegin() {
+                            $("#btnSend").hide();
+                        }
+
+                        function onComplete() {
+                            $("#btnSend").show();
+                            $('#form0').trigger("reset");
+
+                        }
+                    </script>
+                    <form action="~/tr/SendEduReqMail" data-ajax="true" data-ajax-begin="onBegin" data-ajax-complete="onComplete" data-ajax-loading="#loading" data-ajax-mode="replace" data-ajax-update="#result" id="form0" method="post">
+
+                        @Html.AntiForgeryToken()
+                        <div class="aSubmit">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.IsimSoyisim*" aria-invalid="false" aria-required="true" size="40" value="" name="frmNameSurname" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="email" placeholder="@PortalProject.Web.Resources.Resource.EMailAdresi*" aria-invalid="false" aria-required="true" size="40" value="" name="frmEMail" required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.Telefon*" aria-invalid="false" aria-required="true" size="40" value="" name="frmPhone" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <select name="frmCity" required>
+                                            <option>@PortalProject.Web.Resources.Resource.BulundugunuzSehir*</option>
+                                            <option value="Ankara">Ankara</option>
+                                            <option value="İstanbul">İstanbul</option>
+                                            <option value="İzmir">İzmir</option>
+                                            <option value="Diğer">@PortalProject.Web.Resources.Resource.DigerBelirt</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.SehirDigerIse" aria-invalid="false" aria-required="true" size="40" value="" name="frmCityOther">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <select name="frmDate" required>
+                                            <option>@PortalProject.Web.Resources.Resource.Tarih*</option>
+                                            <option value="Nisan 2016">Nisan 2016</option>
+                                            <option value="Mayıs 2016">Mayıs 2016</option>
+                                            <option value="Haziran 2016">Haziran 2016</option>
+                                            <option value="Diğer">@PortalProject.Web.Resources.Resource.DigerBelirt</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.TarihDigerIse" aria-invalid="false" aria-required="true" size="40" value="" name="frmDateOther">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.CalistiginizKurum" aria-invalid="false" aria-required="true" size="40" value="" name="frmCompany">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="@PortalProject.Web.Resources.Resource.Unvan" aria-invalid="false" aria-required="true" size="40" value="" name="frmJob">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <textarea placeholder="@PortalProject.Web.Resources.Resource.Mesaj" aria-invalid="false" rows="10" cols="40" name="frmMessage"></textarea>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" id="btnSend" value="@PortalProject.Web.Resources.Resource.Gonder">
+                                    <div id="result"></div>
+                                    <div id="loading" style="display:none;">@PortalProject.Web.Resources.Resource.TalepIletiliyor</div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+</div><!-- /.col -->
+
+            </div><!-- /.row -->
+
+        </main><!-- /.col -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->

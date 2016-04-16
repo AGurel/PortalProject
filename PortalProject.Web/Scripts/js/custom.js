@@ -100,7 +100,7 @@ $(function(){
 		
 		if (e.isDefaultPrevented()) {
 	    	
-			alert('Please fill out the Quick Quote form');
+			alert('Lütfen formun tamamýný doldurunuz!');
 	  	
 		} else {
 			

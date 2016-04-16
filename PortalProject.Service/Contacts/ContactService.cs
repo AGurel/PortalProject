@@ -2,6 +2,7 @@
 using PortalProject.Data.Repository;
 using PortalProject.Data.UnitOfWork;
 using System.Linq;
+using System.Net.Mail;
 
 namespace PortalProject.Service.Contacts
 {
@@ -69,6 +70,20 @@ namespace PortalProject.Service.Contacts
         public void Delete(int contactId)
         {
             _contactRepository.Delete(contactId);
+        }
+
+        public void SendMail(string mailFrom, string mailTo, string subject, string mailBody)
+        {
+            MailAddress bcc = new MailAddress("abdurrahmangurel@hacettepetargem.com");
+            var message = new MailMessage(mailFrom, mailTo)
+            {
+                Subject = subject,
+                Body = mailBody,
+                IsBodyHtml = true
+            };
+            message.Bcc.Add(bcc);
+            var client = new SmtpClient();
+            client.Send(message);
         }
     }
 }

@@ -842,16 +842,16 @@ form.trackForm input, form.trackForm button { float: none; width: 100%; }
 }
 
 /* 05.02. Header */
-.header { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-flow: row wrap; -ms-flex-flow: row wrap; flex-flow: row wrap; }
-.header__logo { -webkit-order: 1; -ms-flex-order: 1; order: 1; background-color: #ffffff; width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; }
+.header { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-flow: row wrap; -ms-flex-flow: row wrap; flex-flow: row wrap; position:relative;}
+.header__logo {position:relative; z-index:99; -webkit-order: 1; -ms-flex-order: 1; order: 1; background-color: #ffffff; width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.1); margin-bottom: 10px; padding-top: 10px; padding-bottom: 10px; }
 .header__logo img { margin-top: 35px ; }
 @media (min-width: 992px) { .header__logo { width: 270px; height: 120px; margin-bottom: 0; padding-top: 0; padding-bottom: 0; border-bottom: 0; } }
 @media (min-width: 1200px) { .header__logo { position: relative; } }
-@media (min-width: 1200px) { .header__logo::after { position: absolute; content: ""; height: 43px; width: 43px; background-color: #ffffff; -webkit-transform: rotate(135deg); -ms-transform: rotate(135deg); transform: rotate(135deg); bottom: 9px; right: -22px; } }
+@media (min-width: 1200px) { .header__logo::before { position: absolute; content: ""; height: 43px; width: 43px; background-color: #ffffff; -webkit-transform: rotate(135deg); -ms-transform: rotate(135deg); transform: rotate(135deg); bottom: 9px; right: -22px; } }
 .header__logo img { display: inline-block; margin-top: 15px; margin-bottom: 15px; width: 60%; }
 @media (min-width: 480px) { .header__logo img { width: auto; } }
 @media (min-width: 992px) { .header__logo img { margin-bottom: 0; } }
-.header__logo a { transition: all 100ms ease-out; }
+.header__logo a { transition: all 100ms ease-out; display:block; position:relative;}
 .header__logo a:hover { text-decoration: none; }
 
 .header__widgets { -webkit-order: 3; -ms-flex-order: 3; order: 3; background-color: #ffffff; width: 100%; }

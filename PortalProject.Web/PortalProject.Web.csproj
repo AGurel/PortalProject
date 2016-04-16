@@ -171,6 +171,7 @@
     <Compile Include="Areas\Admin\Models\ProductModel.cs" />
     <Compile Include="Areas\Admin\Models\ProServiceModel.cs" />
     <Compile Include="Areas\Admin\Models\SettingModel.cs" />
+    <Compile Include="Classes\CultureAwareControllerActivator.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
@@ -182,6 +183,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EduReqModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
@@ -190,6 +193,16 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\PageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\ckeditor\adapters\jquery.js" />
@@ -1685,6 +1698,8 @@
     <Content Include="Content\images\blured.jpg" />
     <Content Include="Content\images\core_values_bg.jpg" />
     <Content Include="Content\images\counter_bg.jpg" />
+    <Content Include="Content\images\eagiris.png" />
+    <Content Include="Content\images\eagirisen.jpg" />
     <Content Include="Content\images\fav.png" />
     <Content Include="Content\images\galeri\1.png" />
     <Content Include="Content\images\galeri\2.png" />
@@ -1694,9 +1709,13 @@
     <Content Include="Content\images\galeri\6.png" />
     <Content Include="Content\images\haber\allin.png" />
     <Content Include="Content\images\haber\aselsan.png" />
+    <Content Include="Content\images\ihagiris.png" />
+    <Content Include="Content\images\ihagirisen.jpg" />
     <Content Include="Content\images\logo%402x.png" />
     <Content Include="Content\images\logo-footer.png" />
+    <Content Include="Content\images\logo-footeren.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logoen.png" />
     <Content Include="Content\images\manset\banner.png" />
     <Content Include="Content\images\manset\banner2.png" />
     <Content Include="Content\images\manset\banner3.png" />
@@ -2079,9 +2098,12 @@
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProService\Add.cshtml" />
     <Content Include="Areas\Admin\Views\ProService\Edit.cshtml" />
+    <None Include="Properties\PublishProfiles\Desktop.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\js\bootstrap\button.js" />
     <Content Include="Scripts\js\bootstrap\carousel.js" />
     <Content Include="Scripts\js\bootstrap\collapse.js" />
@@ -2114,6 +2136,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\Iha.cshtml" />
+    <Content Include="Views\Home\Ea.cshtml" />
+    <Content Include="Views\Home\EduReqForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2185,6 +2210,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

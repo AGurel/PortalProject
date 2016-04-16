@@ -30,13 +30,20 @@
         <div class="top">
 
             <div class="container">
-
-                <div class="top__tagline">İHA Portal'a Hoşgeldiniz</div>
+                <div class="top__tagline">
+                    @PortalProject.Web.Resources.Resource.IHA, @PortalProject.Web.Resources.Resource.EA     
+                </div>
 
                 <nav class="top__menu">
                     <ul class="top-navigation js-dropdown">
                         <li>
-                            <a href="#">@DateTime.Now.ToShortDateString()</a>
+                            <a href="/en">English</a>
+                        </li>
+                        <li>
+                            |
+                        </li>
+                        <li>
+                            <a href="/">Türkçe</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,8 +59,8 @@
                 <header class="header">
 
                     <div class="header__logo">
-                        <a href="/">
-                            <img class="img-responsive" srcset="~/Content/images/logo.png" alt="CargoPress" src="~/Content/images/logo.png">
+                        <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en" : "/")">
+                            <img class="img-responsive" srcset="~/@PortalProject.Web.Resources.Resource.Logo" alt="@ViewBag.Title" src="~/@PortalProject.Web.Resources.Resource.Logo">
                         </a>
                         <button data-target="#cargopress-navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
                             <span class="navbar-toggle__text">MENU</span>
@@ -68,20 +75,31 @@
                     <div class="header__navigation">
                         <nav class="collapse navbar-collapse" id="cargopress-navbar-collapse">
                             <ul class="main-navigation js-main-nav js-dropdown">
-                                <li class="current-menu-item"><a href="/">Anasayfa</a></li>
+                                <li class="current-menu-item"><a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en" : "/")">@PortalProject.Web.Resources.Resource.Anasayfa</a></li>
                                 @foreach (var item in ViewBag.UpPages)
                                 {
                                     <li class="@(@SubPages.Where(x => x.UpPageId == item.Id).Count() != 0 ? "menu-item-has-children" : "")">
                                         <a href="@(@SubPages.Where(x => x.UpPageId == item.Id).Count() == 0 ? "/sayfa/" + item.SeoUrl + "/" + item.Id : "#")">@item.Title</a>
                                         <ul role="menu" class="sub-menu">
-                                            @foreach (var subItem in SubPages.Where(x=>x.UpPageId == item.Id))
+                                            @foreach (var subItem in SubPages.Where(x => x.UpPageId == item.Id))
                                             {
-                                                <li><a href="/sayfa/@subItem.SeoUrl/@subItem.Id">@subItem.Title</a></li>
+                                                <li><a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en" : "")/@PortalProject.Web.Resources.Resource.Sayfa/@subItem.SeoUrl/@subItem.Id">@subItem.Title</a></li>
                                             }
                                         </ul>
                                     </li>
                                 }
-                                <li><a href="/iletisim">İletişim</a></li>
+
+                                <li class="menu-item-has-children @(ViewContext.RouteData.GetRequiredString("action") == "ea" ? "hidden" : "")">
+                                    <a href="#">@PortalProject.Web.Resources.Resource.Hizmetlerimiz</a>
+                                    <ul role="menu" class="sub-menu">
+                                        @foreach (var item in ViewBag.ProServices)
+                                        {
+                                            <li><a href="/iha/hizmetler/@item.SeoUrl/@item.Id">@item.Name</a></li>
+                                        }
+                                    </ul>
+                                </li>
+
+                                <li><a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/contact" : "/iletisim")">@PortalProject.Web.Resources.Resource.Iletisim</a></li>
                             </ul>
                         </nav>
                     </div><!-- /.header__navigation -->
@@ -92,7 +110,7 @@
 
                             <div class="icon-box">
                                 <i class="fa fa-headphones"></i>
-                                <h4 class="icon-box__title">Bizi Arayın</h4>
+                                <h4 class="icon-box__title">@PortalProject.Web.Resources.Resource.BiziArayin</h4>
                                 <span class="icon-box__subtitle">@ViewBag.Contact.Phone</span>
                             </div>
 
@@ -105,10 +123,9 @@
                                 <h4 class="icon-box__title">E-Mail</h4>
                                 <span class="icon-box__subtitle">@ViewBag.Contact.Email</span>
                             </div>
-
                         </div>
 
-                        <a href="/iletisim" class="btn btn-info" id="button_requestQuote">MESAJ BIRAKIN</a>
+                        <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/iha/uav-training-request-form" : "/iha/iha-egitimi-talep-formu")" class="btn btn-info" id="button_requestQuote">@PortalProject.Web.Resources.Resource.IHAEgitimTalepFormu</a>
 
                     </div><!-- /.header__widgets -->
 
@@ -124,8 +141,7 @@
             </div><!-- /.container -->
 
         </div><!-- /.header__container -->
-    
-        @RenderBody();   
+        @RenderBody();
 
         <!-- FOOTER -->
         <footer class="footer">
@@ -139,10 +155,10 @@
                         <div class="col-xs-12 col-md-4">
 
                             <p>
-                                <img alt="logo-footer" src="~/Content/images/logo-footer.png" class="logo">
+                                <img alt="logo-footer" src="~/@PortalProject.Web.Resources.Resource.FooterLogo" class="logo">
                             </p>
                             <p>
-                                Bizleri sosyal medya hesaplarımızdan takip ederek, tüm gelişmelerden haberdar olabilirsiniz.
+                                @PortalProject.Web.Resources.Resource.FooterSosyalMedyaMesaj
                             </p>
                             <p>
                                 <a target="_blank" href="@ViewBag.Setting.Facebook" class="icon-container icon-container--square">
@@ -164,19 +180,13 @@
                         <div class="col-xs-12 col-md-2">
 
                             <div class="widget_nav_menu">
-                                <h6 class="footer-top__headings">KURUMSAL</h6>
+                                <h6 class="footer-top__headings" style="text-transform:uppercase;">@PortalProject.Web.Resources.Resource.Kurumsal</h6>
                                 <ul>
                                     <li>
-                                        <a href="#">Hakkımızda</a>
+                                        <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/page/about-us/8" : "/sayfa/hakkimizda/4")">@PortalProject.Web.Resources.Resource.Hakkimizda</a>
                                     </li>
                                     <li>
-                                        <a href="#">Şirket Profili</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Misyon</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Vizyon</a>
+                                        <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/page/vision-mission/10" : "/sayfa/vizyon-misyon/6")">@PortalProject.Web.Resources.Resource.VizyonMisyon</a>
                                     </li>
                                 </ul>
                             </div><!-- /.widget_nav_menu -->
@@ -187,20 +197,20 @@
 
                             <div class="widget_nav_menu">
 
-                                <h6 class="footer-top__headings">İHA</h6>
+                                <h6 class="footer-top__headings" style="text-transform:uppercase;">@PortalProject.Web.Resources.Resource.IHAKisa</h6>
                                 <ul>
                                     <li>
-                                        <a href="#">Avipod</a>
+                                        <a href="/iha/urun/avipod/1">Avipod</a>
                                     </li>
                                     <li>
-                                        <a href="#">Poyraz</a>
+                                        <a href="/iha/urun/poyraz/2">Poyraz</a>
                                     </li>
                                     <li>
-                                        <a href="#">Şişirebilir İHA</a>
+                                        <a href="/iha/urun/sisirilebilir-iha/3">@PortalProject.Web.Resources.Resource.SisirilebilirIHA</a>
                                     </li>
-                                    <li>
-                                        <a href="#">Multikopterler</a>
-                                    </li>
+                                    @*<li>
+                                            <a href="#">Multikopterler</a>
+                                        </li>*@
                                 </ul>
 
                             </div><!-- /.widget_nav_menu -->
@@ -209,7 +219,7 @@
 
                         <div class="col-xs-12 col-md-4">
 
-                            <h6 class="footer-top__headings">İLETİŞİM BİLGİLERİ</h6>
+                            <h6 class="footer-top__headings">@PortalProject.Web.Resources.Resource.IletisimBilgileri</h6>
                             <p>
                                 @ViewBag.Contact.Address
                                 <br /><br />
@@ -217,8 +227,8 @@
                                 @ViewBag.Contact.Email
                             </p>
                             <p>
-                                <a href="/iletisim" class="btn btn-warning">HARİTA</a>
-                                <a href="/iletisim" class="btn btn-info">İLETİŞİM FORMU</a>
+                                <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/contact" : "/iletisim")" class="btn btn-warning">@PortalProject.Web.Resources.Resource.Harita</a>
+                                <a href="@((PortalProject.Core.Enums.Common.Language)ViewBag.Language == PortalProject.Core.Enums.Common.Language.English ? "/en/contact" : "/iletisim")" class="btn btn-info">@PortalProject.Web.Resources.Resource.IletisimFormu</a>
                             </p>
 
                         </div><!-- /.row -->
@@ -234,11 +244,11 @@
                 <div class="container">
 
                     <div class="footer-bottom__left">
-                        İHA Portal, <a href="http://www.hacettepetargem.com/" target="_blank">Hacettepe Teknoloji ve Ar-Ge Merkezi</a> oluşumudur.
+                        <a href="/">@PortalProject.Web.Resources.Resource.HacettepeTargem</a>
                     </div>
 
                     <div class="footer-bottom__right">
-                        Copyright &copy; 2013&ndash;2016 İHA Portal. Her Hakkı Saklıdır.
+                        Copyright &copy; 2013 - 2016 @PortalProject.Web.Resources.Resource.HerHakkiSaklidir
                     </div>
 
                 </div><!-- /.container -->
@@ -264,5 +274,18 @@
     <script src="@Url.Content("~/Scripts/js/custom.js")"></script>
 
     @RenderSection("scripts", required: false)
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-74254871-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </body>
 </html>

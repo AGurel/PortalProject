@@ -3,6 +3,7 @@ using PortalProject.Data.UnitOfWork;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Newss;
 using PortalProject.Service.Pages;
+using PortalProject.Service.ProServices;
 using PortalProject.Service.Settings;
 using PortalProject.Web.Models;
 using System;
@@ -17,8 +18,8 @@ namespace PortalProject.Web.Controllers
     {
        private readonly INewsService _newsService;
 
-         public NewsController(ISettingService settingService, IContactService contactService, IPageService pageService, INewsService newsService, IUnitOfWork uow)
-            : base(settingService, contactService, pageService, uow)
+         public NewsController(ISettingService settingService, IContactService contactService, IPageService pageService, INewsService newsService, IProServiceService proServiceService, IUnitOfWork uow)
+            : base(settingService, contactService, pageService, proServiceService, uow)
         {
             _newsService = newsService;
         }

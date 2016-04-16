@@ -14,7 +14,7 @@ namespace PortalProject.Service.Banners
         public BannerService(IUnitOfWork uow)
         {
             _uow = uow;
-            _bannerRepository = uow.GetRepository<Banner>();
+            _bannerRepository = _uow.GetRepository<Banner>();
         }
 
         /// <summary>

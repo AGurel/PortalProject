@@ -3,6 +3,7 @@ using PortalProject.Data.UnitOfWork;
 using PortalProject.Service.Contacts;
 using PortalProject.Service.Faqs;
 using PortalProject.Service.Pages;
+using PortalProject.Service.ProServices;
 using PortalProject.Service.Settings;
 using PortalProject.Web.Models;
 using System;
@@ -17,8 +18,8 @@ namespace PortalProject.Web.Controllers
     {
         private readonly IFaqService _faqService;
 
-        public FaqController(ISettingService settingService, IContactService contactService, IPageService pageService, IFaqService faqService, IUnitOfWork uow)
-            : base(settingService, contactService, pageService, uow)
+        public FaqController(ISettingService settingService, IContactService contactService, IPageService pageService, IFaqService faqService, IProServiceService proServiceService, IUnitOfWork uow)
+            : base(settingService, contactService, pageService, proServiceService, uow)
         {
             _faqService = faqService;
         }

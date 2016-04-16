@@ -4,6 +4,7 @@ using PortalProject.Service.Contacts;
 using PortalProject.Service.Galleries;
 using PortalProject.Service.GalleryAlbums;
 using PortalProject.Service.Pages;
+using PortalProject.Service.ProServices;
 using PortalProject.Service.Settings;
 using PortalProject.Web.Models;
 using System;
@@ -19,8 +20,8 @@ namespace PortalProject.Web.Controllers
         private readonly IGalleryAlbumService _galleryAlbumService;
         private readonly IGalleryService _galleryService;
 
-        public GalleryController(ISettingService settingService, IContactService contactService, IPageService pageService, IGalleryAlbumService galleryAlbumService, IGalleryService galleryService, IUnitOfWork uow)
-            : base(settingService, contactService, pageService, uow)
+        public GalleryController(ISettingService settingService, IContactService contactService, IPageService pageService, IGalleryAlbumService galleryAlbumService, IGalleryService galleryService, IProServiceService proServiceService, IUnitOfWork uow)
+            : base(settingService, contactService, pageService, proServiceService, uow)
         {
             _galleryAlbumService = galleryAlbumService;
             _galleryService = galleryService;
